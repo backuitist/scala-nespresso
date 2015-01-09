@@ -10,7 +10,7 @@ class MockitoUtilTest extends JunitMatchers with MockitoUtil {
     @Test
     def testPaymentServiceMock(): Unit = {
         val service : PaymentService = Mockito.mock(classOf[PaymentService])
-        
+
         service.processPayment(User("john", "doe"), amount = 1000L, time = 12345L)
 
         val (user,amount,time) = captureAll[User :: Long :: Long :: HNil](
